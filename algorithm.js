@@ -156,17 +156,11 @@ function calcScore(player) {
 }
 
 function chooseRandomParent(population) {
-	var length = population.length;
-	var parent, r1, r2;
+	// choose index according to (roughly) inverse cube weighting
+	var r = Math.pow(Math.random(), 0.3);
+	var i = Math.floor((1 - r) * population.length);
 
-	while (true) {
-		r1 = Math.random();
-		r2 = Math.random();
-
-		if (r2 < 1 - r1) {
-			return population[Math.floor(r1 * length)];
-		}
-	}
+	return population[i];
 }
 
 doIteration(createNewRandomPopulation());
