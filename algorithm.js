@@ -90,6 +90,7 @@ function playGame(player1, player2) {
 				currentPlayer.legalMoves++;
 				break;
 			case 'won':
+				currentPlayer.legalMoves++;
 				currentPlayer.gamesWon++;
 				nextPlayer.gamesLost++;
 				break;
